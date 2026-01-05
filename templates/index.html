@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Media Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Social Media Recommendation System</h1>
+    <p class="subtitle">Start</p>
+
+    <form method="POST">
+        <input type="text" name="user_id" placeholder="Enter User ID" required>
+        <button type="submit">Get Suggestions</button>
+    </form>
+
+    {% if user_id %}
+    <div class="results">
+        <div class="card">
+            <h2>👥 Friend Suggestions</h2>
+            {% if friends %}
+                <ul>
+                    {% for f in friends %}
+                        <li>User {{ f }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No suggestions found</p>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h2>👍 Pages He May Like</h2>
+            {% if pages %}
+                <ul>
+                    {% for p in pages %}
+                        <li>{{ p }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No page suggestions found</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
