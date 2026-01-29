@@ -4,7 +4,7 @@ from recommendation_logic import (
     data_clean,
     friend_suggestions_with_names,
     page_suggestions_with_names
-)
+) 
 
 app = Flask(__name__)
 
